@@ -1,4 +1,3 @@
-{pkgs, ...}:
 {
   initrd.luks.devices = [
   {

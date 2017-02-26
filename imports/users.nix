@@ -1,4 +1,6 @@
-pkgs: let
+pkgs:
+
+let
 
 krofek = {
 	name = "krofek";

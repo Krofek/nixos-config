@@ -4,19 +4,20 @@
 	imports = [
 	./hardware-configuration.nix
 	./imports/system.nix
+	./containers/webservers.nix
 	];
 
 	# boot and grub options
-	boot = import ./imports/boot.nix pkgs;
+	boot = import ./imports/boot.nix;
 
 	# networking
-	networking = import ./imports/networking.nix pkgs;
+	networking = import ./imports/networking.nix;
 
 	# custom packages path
 	nix.nixPath = [ "/etc/nixos" "nixos-config=/etc/nixos/configuration.nix" ];
 
 	# nixpkgs setup
-	nixpkgs = import ./imports/nixpkgs.nix pkgs;
+	nixpkgs = import ./imports/nixpkgs.nix;
 
 	# system wide packages
 	environment.systemPackages = import ./imports/packages.nix pkgs;

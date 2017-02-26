@@ -2,12 +2,12 @@ pkgs: let
 
 sessionCommands = ''
 # Launch pulse audio applet
-# ${pkgs.pa_applet}/bin/pa-applet &
+${pkgs.pa_applet}/bin/pa-applet &
 # Launch nm applet
 ${pkgs.networkmanagerapplet}/bin/nm-applet &
 '';
 
-in 
+in
 {
   enable = true;
   layout = "us";

@@ -1,4 +1,5 @@
-pkgs: {
+pkgs:
+{
   openssh.enable = true;
   locate.enable = true;
   nixosManual.showManual = true;

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   # locale
 	i18n = {
 		consoleFont = "Lat2-Terminus16";
