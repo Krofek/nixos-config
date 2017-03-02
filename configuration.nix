@@ -3,6 +3,7 @@
 {
 	imports = [
 	./hardware-configuration.nix
+	./imports/locale.nix
 	./imports/system.nix
 	./containers/webservers.nix
 	];
