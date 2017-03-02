@@ -63,18 +63,6 @@ let
         env[PATH] = /srv/www/bin:/var/setuid-wrappers:/srv/www/.nix-profile/bin:/srv/www/.nix-profile/sbin:/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default/sbin:/run/current-system/sw/bin/run/current-system/sw/sbin
       '';
 
-    /*services.phpfpm.phpIni = pkgs.runCommand "php.ini"
-        {
-          options = ''
-            zend_extension=${pkgs.phpPackages.xdebug}/lib/php/extensions/xdebug.so
-            max_execution_time = 30
-          '';
-        }
-        ''
-          cat ${pkgs.php}/etc/php-recommended.ini > $out
-          echo "$options" >> $out
-        '';*/
-
       users.extraUsers = import ../conf/nginx.user.nix pkgs;
       users.extraGroups."www-data".gid = 33;
     };
