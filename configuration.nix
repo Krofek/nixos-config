@@ -5,7 +5,7 @@
 		./hardware-configuration.nix
 		./imports/locale.nix
 		./imports/system.nix
-		./containers/webservers.nix
+		./imports/containers.nix
 	];
 
 	# boot and grub options

@@ -3,11 +3,11 @@
 
 let
 
-  mkContainer = { net, oct, name, type ? "default", ... }:
+  mkContainer = { net ? "192.168.11", oct, name, type ? "default", nginxUser ? "www-data", ... }:
   let
     vhostsConf = if type != "default"
-                 then "../conf/nginx.${type}.nix"
-                 else ../conf/nginx.default.nix;
+                 then "./conf/nginx.${type}.nix"
+                 else ./conf/nginx.default.nix;
   in
   {
     privateNetwork = true;
@@ -35,8 +35,8 @@ let
 
       services.nginx = {
         enable = true;
-        user = "www-data";
-        group = "www-data";
+        user = nginxUser;
+        group = nginxUser;
         recommendedOptimisation = true;
         recommendedTlsSettings = true;
         recommendedGzipSettings = true;
@@ -46,10 +46,10 @@ let
 
       services.phpfpm.poolConfigs.nginx = ''
         listen = /run/phpfpm/nginx
-        listen.owner = www-data
-        listen.group = www-data
+        listen.owner = ${nginxUser}
+        listen.group = ${nginxUser}
         listen.mode = 0660
-        user = www-data
+        user = ${nginxUser}
         pm = dynamic
         pm.max_children = 75
         pm.start_servers = 10
@@ -64,16 +64,17 @@ let
         env[PATH] = /srv/www/bin:/var/setuid-wrappers:/srv/www/.nix-profile/bin:/srv/www/.nix-profile/sbin:/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default/sbin:/run/current-system/sw/bin/run/current-system/sw/sbin
       '';
 
-      users.extraUsers = import ../conf/nginx.user.nix pkgs;
-      users.extraGroups."www-data".gid = 33;
+      users = import ./conf/nginx.user.nix pkgs nginxUser;
     };
   };
 
 in
 {
-  containers.ta = mkContainer {
-    net = "192.168.11";
-    oct = "11";
-    name = "ta.local";
+  containers = {
+    tests = mkContainer {
+      oct = "12";
+      name = "tests.local";
+      path = "/home/krofek/ve/tests";
+    };
   };
 }
