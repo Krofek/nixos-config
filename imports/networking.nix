@@ -1,3 +1,4 @@
+# Networking setup
 {
   hostName = "krofox";
   networkmanager = {

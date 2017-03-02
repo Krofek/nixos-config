@@ -1,3 +1,4 @@
+# Locale and timezone settings
 {
   # locale
   i18n = {

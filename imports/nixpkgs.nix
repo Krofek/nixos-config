@@ -1,3 +1,4 @@
+# Nixpkgs settings
 {
   config = {
 		allowUnfree = true;

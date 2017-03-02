@@ -1,4 +1,7 @@
-pkgs: let
+# X-Server settings
+pkgs:
+
+let
 
 sessionCommands = ''
 # Launch pulse audio applet

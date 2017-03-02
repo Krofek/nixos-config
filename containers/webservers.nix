@@ -1,11 +1,12 @@
+# Webserver container settings
 { lib, pkgs, config, ... }:
 
 let
 
   mkContainer = { net, oct, name, type ? "default", ... }:
   let
-    vhostsConf = if type == "drupal"
-                 then ../conf/nginx.drupal.nix
+    vhostsConf = if type != "default"
+                 then "../conf/nginx.${type}.nix"
                  else ../conf/nginx.default.nix;
   in
   {

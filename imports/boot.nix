@@ -1,10 +1,10 @@
 {
   initrd.luks.devices = [
-  {
-    name = "root";
-    device = "/dev/sda3";
-    preLVM = true;
-  }
+    {
+      name = "root";
+      device = "/dev/sda3";
+      preLVM = true;
+    }
   ];
 
   loader.grub = {

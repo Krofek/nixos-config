@@ -1,3 +1,4 @@
+# System wide common settings
 {
   # audio
 	hardware.pulseaudio.enable = true;

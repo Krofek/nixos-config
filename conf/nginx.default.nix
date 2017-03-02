@@ -1,3 +1,4 @@
+# Default php nginx config
 pkgs: hostname:
 {
   "${hostname}" = {

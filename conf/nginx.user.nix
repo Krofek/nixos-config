@@ -1,3 +1,4 @@
+# Nginx server users
 pkgs: {
   "webserv" = {
     group = "users";

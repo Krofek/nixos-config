@@ -2,10 +2,10 @@
 
 {
 	imports = [
-	./hardware-configuration.nix
-	./imports/locale.nix
-	./imports/system.nix
-	./containers/webservers.nix
+		./hardware-configuration.nix
+		./imports/locale.nix
+		./imports/system.nix
+		./containers/webservers.nix
 	];
 
 	# boot and grub options
