@@ -3,7 +3,7 @@
   hostName = "krofox";
   networkmanager = {
     enable = true;
-    unmanaged = [ "vmnet" "vboxnet" "virbr" "ifb" "ve" "ve-ta" ];
+    /*unmanaged = [ "vmnet" "vboxnet" "virbr" "ifb" "ve" "ve-ta" ];*/
   };
   firewall.enable = false;
   extraHosts = ''

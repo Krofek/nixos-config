@@ -2,24 +2,16 @@
 pkgs: nginxUser:
 {
   extraUsers = {
-    "webserv" = {
-      group = "users";
-      uid = 1000;
+    "${nginxUser}" = {
+      group = nginxUser;
+      uid = 33;
       createHome = true;
-      home = "/home/webserv";
+      home = "/home/${nginxUser}";
       extraGroups = [ "users" "wheel" ];
       shell = "${pkgs.zsh}/bin/zsh";
       isNormalUser = true;
     };
-
-    ${nginxUser} = {
-      uid = 33;
-      group = nginxUser;
-      home = "/srv/www";
-      createHome = true;
-      useDefaultShell = true;
-    };
   };
-  
-  extraGroups.${nginxUser}.gid = 33;
+
+  extraGroups."${nginxUser}".gid = 33;
 }

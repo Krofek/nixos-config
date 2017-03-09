@@ -1,5 +1,5 @@
 {
   imports = [
-    ./containers/webservers.nix
+    ./containers/webserver.php.nix
   ];
 }

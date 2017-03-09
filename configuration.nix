@@ -6,6 +6,7 @@
 		./imports/locale.nix
 		./imports/system.nix
 		./imports/containers.nix
+		./imports/services/i3status.nix
 	];
 
 	# boot and grub options
