@@ -1,2 +1,4 @@
 /nixpkgs
 hardware-configuration.nix
+/nixos-webtainers
+/nixos-i3status-configurator

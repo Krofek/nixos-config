@@ -3,10 +3,9 @@
 {
 	imports = [
 		./hardware-configuration.nix
-		./imports/locale.nix
 		./imports/system.nix
-		./imports/containers.nix
-		./imports/services/i3status.nix
+		./nixos-i3status-configurator/default.nix
+		./nixos-webtainers/default.nix
 	];
 
 	# boot and grub options
@@ -29,4 +28,22 @@
 
 	# users
 	users = import ./imports/users.nix pkgs;
+
+	# extra tools
+	tools = {
+		webtainers = {
+	    "tests" = {
+	      net = "192.168.11";
+	      lastOctave = "12";
+	      bindMounts = {
+	        "/var/www/tests.local" = {
+	          hostPath = "/home/krofek/projects/tests";
+	          isReadOnly = false;
+	        };
+	      };
+	    };
+	  };
+
+		i3status-configurator.enable = true;
+	};
 }

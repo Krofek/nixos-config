@@ -6,7 +6,5 @@ pkgs:
   nixosManual.showManual = true;
   printing.enable = true;
 
-  i3status.enable = true;
-
   xserver = import ./xserver.nix pkgs;
 }
