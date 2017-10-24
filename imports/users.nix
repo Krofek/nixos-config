@@ -1,5 +1,6 @@
-# Add users to system
-pkgs:
+{ pkgs, ... }:
+
+# System users
 {
 	extraUsers = {
 		krofek = {

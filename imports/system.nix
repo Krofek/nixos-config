@@ -22,4 +22,11 @@
 		ssh.startAgent = true;
 		bash.enableCompletion = true;
 	};
+
+  # fonts
+	fonts = {
+		enableCoreFonts = true;
+		enableDefaultFonts = true;
+		enableFontDir = true;
+	};
 }

@@ -4,8 +4,8 @@
 		allowUnfree = true;
 
 		firefox = {
-			enableGoogleTalkPlugin = true;
-			enableAdobeFlash = true;
+			enableGoogleTalkPlugin = false;
+			enableAdobeFlash = false;
 		};
 
 		chromium = {

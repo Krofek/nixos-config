@@ -1,11 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
 	imports = [
 		./hardware-configuration.nix
 		./imports/system.nix
-		./nixos-i3status-configurator/default.nix
-		./nixos-webtainers/default.nix
 	];
 
 	# boot and grub options
@@ -21,29 +19,19 @@
 	nixpkgs = import ./imports/nixpkgs.nix;
 
 	# system wide packages
-	environment.systemPackages = import ./imports/packages.nix pkgs;
+	environment.systemPackages = import ./imports/packages.nix { inherit pkgs; };
 
 	# services
-	services = import ./imports/services.nix pkgs;
+	services = import ./imports/services.nix { inherit pkgs; };
 
 	# users
-	users = import ./imports/users.nix pkgs;
+	users = import ./imports/users.nix { inherit pkgs; };
 
 	# extra tools
-	tools = {
-		webtainers = {
-	    "tests" = {
-	      net = "192.168.11";
-	      lastOctave = "12";
-	      bindMounts = {
-	        "/var/www/tests.local" = {
-	          hostPath = "/home/krofek/projects/tests";
-	          isReadOnly = false;
-	        };
-	      };
-	    };
-	  };
+	/*tools.i3status-configurator.enable = true;*/
 
-		i3status-configurator.enable = true;
-	};
+	# containers
+	/*containers = import ./imports/containers.nix {
+		inherit config pkgs lib;
+	};*/
 }
