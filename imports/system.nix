@@ -21,6 +21,7 @@
 		zsh.enable = true;
 		ssh.startAgent = true;
 		bash.enableCompletion = true;
+		browserpass.enable = true;
 	};
 
   # fonts

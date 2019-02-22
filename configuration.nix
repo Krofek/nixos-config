@@ -4,6 +4,7 @@
 	imports = [
 		./hardware-configuration.nix
 		./imports/system.nix
+		./imports/i3status-configurator
 	];
 
 	# boot and grub options
@@ -28,10 +29,10 @@
 	users = import ./imports/users.nix { inherit pkgs; };
 
 	# extra tools
-	/*tools.i3status-configurator.enable = true;*/
+	tools.i3status-configurator.enable = true;
 
 	# containers
-	/*containers = import ./imports/containers.nix {
-		inherit config pkgs lib;
-	};*/
+	# containers = import ./imports/containers.nix {
+	# 	inherit config pkgs lib;
+	# };
 }

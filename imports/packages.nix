@@ -5,7 +5,7 @@ with pkgs;
 [
     # core utils +
     wget git vim rxvt_unicode zsh telnet tcpdump
-    traceroute unzip htop which subversion
+    traceroute unzip htop which subversion cvs
 
     # utils
     arandr
@@ -16,23 +16,25 @@ with pkgs;
     x11vnc
     dmenu
     gparted ntfsprogs
-    gftp
+    gnupg pass
 
     # media
     firefox
+    chromium
+    filezilla
     skype
     zathura
     irssi
+    libreoffice
+    vlc
 
     # dev
     atom
     vscode
     jetbrains.phpstorm
-    nodejs
-    yarn
+    jetbrains.pycharm-professional
     androidenv.platformTools
 
     # other
-    teamviewer
     /*abyss-assembler*/
 ]
